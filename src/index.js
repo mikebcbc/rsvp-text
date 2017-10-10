@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import {Provider} from 'react-redux';
+import store from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import './reset.css';
+import './index.css';
+
+import Root from './components/Root/Root';
+
+ReactDOM.render(
+	<Provider store={store}>
+		<Root />
+	</Provider>,
+	document.getElementById('root')
+);
