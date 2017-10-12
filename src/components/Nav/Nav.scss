@@ -1,0 +1,11 @@
+.navigation {
+	width: 60%;
+	.main-nav {
+		display: flex;
+		justify-content: flex-end;
+		height: 100%;
+		li {
+			margin: 0 5px;
+		}
+	}
+}

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
+import Dashboard from '../Dashboard/Dashboard';
+import Sidebar from '../Sidebar/Sidebar';
 import './Root.css';
 
 class Root extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="Root">
+        <Header />
+        <div className="main-container">
+          <Dashboard />
+          <Sidebar />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,13 @@
+.Header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 40px;
+	background-color: #d9edff;
+	width: 100%;
+	height: 57px;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
