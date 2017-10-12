@@ -2,7 +2,12 @@
   max-width: 1200px;
   margin: 0 auto; }
   .Root .main-container {
-    margin-top: 57px;
+    margin: 57px 20px 0 20px;
     padding: 20px 0;
     display: flex;
     flex-direction: row; }
+    @media screen and (max-width: 769px) {
+      .Root .main-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; } }

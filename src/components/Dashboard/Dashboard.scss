@@ -3,4 +3,8 @@
 	width: 75%;
 	margin: 0 20px;
 	height: 700px;
+	@media screen and (max-width: 769px) {
+		width: 100%;
+		margin: 20px 0;
+	}
 }

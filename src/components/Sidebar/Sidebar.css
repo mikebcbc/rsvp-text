@@ -3,3 +3,6 @@
   margin: 0 20px;
   width: 25%;
   background-color: lightgrey; }
+  @media screen and (max-width: 769px) {
+    .sidebar {
+      width: 100%; } }
