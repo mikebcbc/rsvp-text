@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-export default class Login extends Component {
+class Login extends Component {
   render() {
     return (
       <div className="login">
-        { this.props.children }
       </div>
     )
   }
 }
+
+export default Login;
