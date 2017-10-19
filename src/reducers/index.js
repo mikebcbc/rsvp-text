@@ -1,6 +1,8 @@
 import * as actions from '../actions';
 
-const initialState = {};
+const initialState = {
+	title: 'Home'
+};
 
 export const rsvpReducer = (state=initialState, action) => {
 	return state;

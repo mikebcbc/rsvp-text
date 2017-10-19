@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import './Header.css';
 
 import Nav from '../Nav/Nav';
-// import Title from '../Title/Title';
+import Title from '../Title/Title';
 import {Link} from 'react-router-dom';
 
 class Header extends Component {
@@ -12,8 +13,13 @@ class Header extends Component {
       	<Link to="/"><img src="logo.png" alt="Logo" /></Link>
       	< Nav />
       </div>
+      <Title title={this.props.title} />
     );
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+	title: state.rsvp.title
+});
+
+export default connect(mapStateToProps)(Header);
