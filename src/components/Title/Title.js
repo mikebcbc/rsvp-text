@@ -8,7 +8,7 @@ export default class Title extends Component {
       <div className="title">
       	<span className="greeting">{this.props.title}</span>
       	<hr />
-      	<span className="sub-greeting">Manage your guests, set reminders, customize messages, and more!</span>
+      	<span className="sub-greeting">{this.props.subTitle}</span>
       </div>
     )
   }

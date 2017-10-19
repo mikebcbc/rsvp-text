@@ -13,13 +13,14 @@ class Header extends Component {
       	<Link to="/"><img src="logo.png" alt="Logo" /></Link>
       	< Nav />
       </div>,
-      <Title title={this.props.title} key="B"/>
+      <Title title={this.props.title} subTitle={this.props.subTitle} key="B"/>
     ];
   }
 }
 
 const mapStateToProps = state => ({
-	title: state.rsvp.title
+	title: state.rsvp.title,
+	subTitle: state.rsvp.subTitle
 });
 
 export default connect(mapStateToProps)(Header);

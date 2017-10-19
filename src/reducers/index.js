@@ -1,9 +1,13 @@
-import * as actions from '../actions';
+import {SET_TITLE_HEADER} from '../actions';
 
-const initialState = {
-	title: 'Home'
-};
+const initialState = {};
 
 export const rsvpReducer = (state=initialState, action) => {
+	if (action.type === SET_TITLE_HEADER) {
+		return Object.assign({}, state, {
+			title: action.title,
+			subTitle: action.subtitle
+		})
+	}
 	return state;
 }
