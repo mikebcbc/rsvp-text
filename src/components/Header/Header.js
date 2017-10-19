@@ -8,13 +8,13 @@ import {Link} from 'react-router-dom';
 
 class Header extends Component {
   render() {
-    return (
-      <div className="Header">
+    return [
+      <div className="Header" key="A">
       	<Link to="/"><img src="logo.png" alt="Logo" /></Link>
       	< Nav />
-      </div>
-      <Title title={this.props.title} />
-    );
+      </div>,
+      <Title title={this.props.title} key="B"/>
+    ];
   }
 }
 
