@@ -1,0 +1,26 @@
+.title {
+	margin: 57px 20px 0 20px;
+	padding: 20px;
+	@media (max-width: 769px) {
+		text-align: center;
+	}
+	.greeting {
+		padding-left: 10px;
+		font-family: 'Lato', sans-serif;
+		font-size: 36px;
+		font-weight: bold;
+	}
+	hr {
+		width: 60%;
+		margin: 15px 0 15px 10px;
+    border: solid 2px #68aeeb;
+    @media (max-width: 769px) {
+    	width: 100%;
+    	margin: 15px auto;
+    }
+	}
+	.sub-greeting {
+		padding-left: 10px;
+		font-family: 'Open Sans', sans-serif;
+	}
+}

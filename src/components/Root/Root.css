@@ -1,13 +1,13 @@
-.Root {
+.app {
   max-width: 1200px;
   margin: 0 auto; }
-  .Root .main-container {
-    margin: 57px 20px 0 20px;
+  .app .dashboard {
+    margin: 0 20px;
     padding: 20px 0;
     display: flex;
     flex-direction: row; }
     @media screen and (max-width: 769px) {
-      .Root .main-container {
+      .app .dashboard {
         flex-direction: column;
         justify-content: center;
         align-items: center; } }
