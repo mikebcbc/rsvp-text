@@ -24,3 +24,18 @@ export const registerUser = user => dispatch => {
 	.then(res => console.log(res))
 	.catch(err => console.log(err))
 }
+
+export const login = (user) => dispatch => {
+	return (
+		fetch(`${API_BASE_URL}/authenticate`, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(user)
+		})
+		.then(res => res.json())
+		.then(token => console.log(token.auth_token))
+		.catch(err => console.log(err))
+	)
+}
