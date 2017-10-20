@@ -17,8 +17,11 @@ export class RegisterForm extends Component {
   render() {
     return (
       <form className="register-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-      	<Field component={Input} type="text" name="name" validate={required} />
+      	<label htmlFor="name">Your Name</label>
+        <Field component={Input} type="text" name="name" validate={required} />
+        <label htmlFor="email">Your Email</label>
       	<Field component={Input} type="email" name="email" validate={[required, nonEmpty, isTrimmed]} />
+        <label htmlFor="password">Password</label>
       	<Field component={Input} type="text" name="password" validate={[required, isTrimmed]} />
       	<button type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
       </form>
