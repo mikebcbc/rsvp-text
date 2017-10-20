@@ -1,5 +1,6 @@
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
+import {devToolsEnhancer} from 'redux-devtools-extension/developmentOnly';
 import {reducer as formReducer} from 'redux-form';
 import {rsvpReducer} from './reducers';
 
@@ -8,5 +9,5 @@ export default createStore(
 		rsvp: rsvpReducer,
 		form: formReducer
 	}),
-	compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+	compose(applyMiddleware(thunk), devToolsEnhancer())
 	);
