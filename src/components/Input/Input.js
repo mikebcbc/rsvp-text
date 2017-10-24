@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Input.css';
+
 export default class Input extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.meta.active && this.props.meta.active) {
@@ -26,6 +28,7 @@ export default class Input extends React.Component {
                     {...this.props.input}
                     id={this.props.input.name}
                     type={this.props.type}
+                    placeholder={this.props.placeholder}
                     ref={input => (this.input = input)}
                 />
                 {error}

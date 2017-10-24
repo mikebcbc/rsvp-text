@@ -1,0 +1,19 @@
+.login-form {
+	margin: 0;
+	background-color: #d9edff;
+	padding: 20px;
+	label {
+		display: none;
+	}
+	input {
+		width: 100%;
+	}
+	button {
+		background-color: #68aeeb;
+		padding: 10px;
+		border: none;
+		width: 100%;
+		color: white;
+		font-size: 20px;
+	}
+}
