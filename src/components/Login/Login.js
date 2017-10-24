@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {setTitleHeader} from '../../actions';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import LoginForm from '../LoginForm/LoginForm';
 import './Login.css';
@@ -22,6 +22,7 @@ class Login extends Component {
           <span>Enter a username and password to log on!</span>
         </div>
       	<LoginForm />
+        <span className="register">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
       </div>
     )
   }

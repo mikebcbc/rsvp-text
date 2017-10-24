@@ -16,7 +16,6 @@ class Nav extends Component {
     return (
       <nav className="navigation">
 				<ul className="main-nav">
-          <li><Link to="/register">Register</Link></li>
           {
             (this.props.loggedIn)
               ? <li><Link to="/" onClick={() => this.logOut()}>Logout</Link></li>
