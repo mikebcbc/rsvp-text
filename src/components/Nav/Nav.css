@@ -1,8 +1,11 @@
 .navigation {
-  width: 60%; }
-  .navigation .main-nav {
-    display: flex;
-    justify-content: flex-end;
-    height: 100%; }
-    .navigation .main-nav li {
-      margin: 0 5px; }
+  width: 60%;
+}
+.navigation .main-nav {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+.navigation .main-nav li {
+  margin: 0 5px;
+}
