@@ -25,4 +25,4 @@ export class Dashboard extends Component {
   }
 }
 
-export default connect(dispatch => ({ dispatch }))(Dashboard);
+export default connect(dispatch =>({dispatch}))(Dashboard);
