@@ -1,15 +1,19 @@
 .login-form {
   margin: 0;
   background-color: #d9edff;
-  padding: 20px; }
-  .login-form label {
-    display: none; }
-  .login-form input {
-    width: 100%; }
-  .login-form button {
-    background-color: #68aeeb;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    color: white;
-    font-size: 20px; }
+  padding: 20px;
+}
+.login-form label {
+  display: none;
+}
+.login-form input {
+  width: 100%;
+}
+.login-form button {
+  background-color: #68aeeb;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+}

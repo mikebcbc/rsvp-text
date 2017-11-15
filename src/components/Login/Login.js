@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {setTitleHeader} from '../../actions';
 import {Link, Redirect} from 'react-router-dom';
 
-import LoginForm from '../LoginForm/LoginForm';
-import './Login.css';
+import LoginForm from "../LoginForm/LoginForm";
+import "./Login.css";
 
 class Login extends Component {
 	componentDidMount() {
@@ -24,7 +24,7 @@ class Login extends Component {
       	<LoginForm />
         <span className="register">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
       </div>
-    )
+    );
   }
 }
 
