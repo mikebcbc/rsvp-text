@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import {connect} from 'react-redux';
+import Modal from 'react-responsive-modal';
 
-import {addGuest} from '../../actions';
+import {addGuest, toggleGuest} from '../../actions';
 import 'react-table/react-table.css';
 import './Guests.css';
 
@@ -25,26 +26,30 @@ export class Guests extends Component {
 	    accessor: 'group'
 	  }];
 
-	  return (
-	  <ReactTable data={this.props.guests} columns={columns}>
+	  return ([
+	  <ReactTable data={this.props.guests} columns={columns} key="1">
 	  	{(state, makeTable, instance) => {
 	  		return (
 	  			<div className="guests">
 	  				<div className="guests-header">
 	  					<h4>Smith Wedding Guest List</h4>
-	  					<button>+</button>
+	  					<button onClick={(e) => this.props.dispatch(toggleGuest(true))}>+</button>
 	  				</div>
 	  				{makeTable()}
 	  			</div>
 	  		)
 	  	}}
-	  </ReactTable>
-	  )
+	  </ReactTable>,
+	  <Modal open={this.props.addModalOpen} onClose={() => this.props.dispatch(toggleGuest(false))} little key="2">
+	  	<h2>asdgasdf</h2>
+	  </Modal>
+	  ])
 	}
 }
 
 const mapStateToProps = state => ({
-	guests: state.rsvp.guests
+	guests: state.rsvp.guests,
+	addModalOpen: state.rsvp.addModalOpen
 })
 
 export default connect(mapStateToProps)(Guests);
