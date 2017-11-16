@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import {connect} from 'react-redux';
 import Modal from 'react-responsive-modal';
+import AddGuest from '../AddGuest/AddGuest';
 
 import {addGuest, toggleGuest} from '../../actions';
 import 'react-table/react-table.css';
@@ -41,7 +42,8 @@ export class Guests extends Component {
 	  	}}
 	  </ReactTable>,
 	  <Modal open={this.props.addModalOpen} onClose={() => this.props.dispatch(toggleGuest(false))} little key="2">
-	  	<h2>asdgasdf</h2>
+	  	<h2>Add a Guest</h2>
+	  	<AddGuest />
 	  </Modal>
 	  ])
 	}
