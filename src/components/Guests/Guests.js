@@ -20,7 +20,10 @@ export class Guests extends Component {
 	  },
 	  {
 	    Header: 'RSVP',
-	    accessor: 'rsvp'
+	    accessor: 'rsvp',
+	    Cell: row => (
+	    	row.value == 'y' ? <div><span>YES</span><span> NO</span></div> : <div><span>YES</span><span> NO</span></div>
+	    )
 	  },
 	  {
 	    Header: 'Group',
