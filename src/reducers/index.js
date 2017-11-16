@@ -1,10 +1,18 @@
-import { SET_TITLE_HEADER, SET_AUTH_TOKEN, SET_CURRENT_USER } from "../actions";
+import { SET_TITLE_HEADER, SET_AUTH_TOKEN, SET_CURRENT_USER, ADD_GUEST } from "../actions";
 
 const initialState = {
   title: null,
   subTitle: null,
   authToken: null,
-  currentUser: null
+  currentUser: null,
+  guests:[{
+      name: {
+        first: 'Tanner',
+        last: 'Linsley'
+      },
+      rsvp: 'y',
+      group: 'Groomsman'
+    }]
 };
 
 export const rsvpReducer = (state = initialState, action) => {
@@ -21,6 +29,10 @@ export const rsvpReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       currentUser: action.currentUser
     });
+  } else if (action.type === ADD_GUEST) {
+    return Object.assign({}, state, {
+      guests: [...state.guests, action.guest]
+    })
   }
   return state;
 };

@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
+import {connect} from 'react-redux';
 
+import {addGuest} from '../../actions';
 import 'react-table/react-table.css';
+import './Guests.css';
 
-export default class Guests extends Component {
+export class Guests extends Component {
 	render() {
-	  const data = [{
-	    name: {
-	    	first: 'Tanner',
-	    	last: 'Linsley'
-	    },
-	    rsvp: 'yes',
-	    group: 'Groomsman'
-	  }];
-
 	  const columns = [{
 	    Header: 'First',
 	    accessor: 'name.first'
@@ -30,9 +24,27 @@ export default class Guests extends Component {
 	    Header: 'Group',
 	    accessor: 'group'
 	  }];
-	  
+
 	  return (
-	  <ReactTable data={data} columns={columns} />
+	  <ReactTable data={this.props.guests} columns={columns}>
+	  	{(state, makeTable, instance) => {
+	  		return (
+	  			<div className="guests">
+	  				<div className="guests-header">
+	  					<h4>Smith Wedding Guest List</h4>
+	  					<button>+</button>
+	  				</div>
+	  				{makeTable()}
+	  			</div>
+	  		)
+	  	}}
+	  </ReactTable>
 	  )
 	}
 }
+
+const mapStateToProps = state => ({
+	guests: state.rsvp.guests
+})
+
+export default connect(mapStateToProps)(Guests);

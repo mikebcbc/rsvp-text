@@ -14,6 +14,14 @@ export const setTitleHeader = (title, subtitle) => ({
   subtitle
 });
 
+// GUEST ACTIONS
+
+export const ADD_GUEST = "ADD_GUEST";
+export const addGuest = (guest) => ({
+  type: ADD_GUEST,
+  guest
+});
+
 // AUTH ACTIONS
 
 export const SET_AUTH_TOKEN = "SET_AUTH_TOKEN";
