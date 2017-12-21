@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Modal from 'react-responsive-modal';
 import AddGuest from '../AddGuest/AddGuest';
 
-import {addGuest, toggleGuest} from '../../actions';
+import {toggleGuest} from '../../actions';
 import 'react-table/react-table.css';
 import './Guests.css';
 
@@ -22,7 +22,7 @@ export class Guests extends Component {
 	    Header: 'RSVP',
 	    accessor: 'rsvp',
 	    Cell: row => (
-	    	row.value == 'y' ? <div><span>YES</span><span> NO</span></div> : <div><span>YES</span><span> NO</span></div>
+	    	row.value === 'y' ? <div><span>YES</span><span> NO</span></div> : <div><span>YES</span><span> NO</span></div>
 	    )
 	  },
 	  {

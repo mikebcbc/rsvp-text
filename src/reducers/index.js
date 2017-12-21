@@ -11,6 +11,7 @@ const initialState = {
       last: 'Linsley'
     },
     rsvp: 'y',
+    phone: "123-123-1231",
     group: 'Groomsman'
   }],
   addModalOpen: false
@@ -32,7 +33,7 @@ export const rsvpReducer = (state = initialState, action) => {
     });
   } else if (action.type === ADD_GUEST) {
     return Object.assign({}, state, {
-      guests: [...state.rsvp.guests, action.guest]
+      guests: [...state.guests, action.guest]
     })
   } else if (action.type === TOGGLE_ADD_GUEST) {
     return Object.assign({}, state, {
