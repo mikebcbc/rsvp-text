@@ -49,6 +49,26 @@ const storeAuthInfo = (authToken, dispatch) => {
   saveAuthToken(authToken);
 };
 
+const createEvent = (token) => {
+  const event = {
+    "event": {
+      "name": 'Smith Family',
+      "event_date": '2018-01-01'
+    }
+  };
+  return fetch(`${API_BASE_URL}/events`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(event)
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+};
+
 export const registerUser = user => dispatch => {
   return fetch(`${API_BASE_URL}/users`, {
     method: "POST",
@@ -57,7 +77,16 @@ export const registerUser = user => dispatch => {
     },
     body: JSON.stringify(user)
   })
-    .then(res => console.log(res))
+    .then((res) => {
+      const formatUser = {
+        "email": user.user.email,
+        "password": user.user.password
+      };
+      dispatch(login(formatUser));
+    })
+    .then((res) => {
+      console.log(res);
+    })
     .catch(err => console.log(err));
 };
 
@@ -70,6 +99,9 @@ export const login = user => dispatch => {
     body: JSON.stringify(user)
   })
     .then(res => res.json())
-    .then(token => storeAuthInfo(token.auth_token, dispatch))
+    .then((token) => {
+      createEvent(token.auth_token);
+      storeAuthInfo(token.auth_token, dispatch);
+    })
     .catch(err => console.log(err));
 };
