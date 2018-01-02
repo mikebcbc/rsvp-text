@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setTitleHeader } from "../../actions";
 
 import Sidebar from "../Sidebar/Sidebar";
+import Guests from "../Guests/Guests";
 
 import "./Dashboard.css";
 
@@ -18,7 +19,7 @@ export class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <span className="placeholder" />
+        <Guests />
         <Sidebar />
       </div>
     );

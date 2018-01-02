@@ -1,0 +1,23 @@
+.guests {
+	.guests-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
+		button {
+			background-color: #589bd6;
+			width: 30px;
+	    height: 30px;
+	    color: white;
+	    padding: 0;
+	    font-size: 20px;
+	    font-weight: bolder;
+	    border: none;
+	    border-radius: 0;
+	    text-align: center;
+	    outline: none;
+	    cursor: pointer;
+		}
+	}
+}
