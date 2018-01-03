@@ -49,7 +49,7 @@ const storeAuthInfo = (authToken, dispatch) => {
   saveAuthToken(authToken);
 };
 
-const createEvent = (token) => {
+const createEvent = name => (dispatch, getState) => {
   const event = {
     "event": {
       "name": 'Smith Family',
@@ -60,7 +60,7 @@ const createEvent = (token) => {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${getState().rsvp.authToken}`
     },
     body: JSON.stringify(event)
   })
@@ -69,7 +69,7 @@ const createEvent = (token) => {
   .catch(err => console.log(err));
 };
 
-export const registerUser = user => dispatch => {
+export const registerUser = user => (dispatch)=> {
   return fetch(`${API_BASE_URL}/users`, {
     method: "POST",
     headers: {
@@ -83,9 +83,7 @@ export const registerUser = user => dispatch => {
         "password": user.user.password
       };
       dispatch(login(formatUser));
-    })
-    .then((res) => {
-      console.log(res);
+      dispatch(createEvent());
     })
     .catch(err => console.log(err));
 };
@@ -100,7 +98,6 @@ export const login = user => dispatch => {
   })
     .then(res => res.json())
     .then((token) => {
-      createEvent(token.auth_token);
       storeAuthInfo(token.auth_token, dispatch);
     })
     .catch(err => console.log(err));
