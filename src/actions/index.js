@@ -64,7 +64,6 @@ const createEvent = name => (dispatch, getState) => {
     },
     body: JSON.stringify(event)
   })
-  .then(res => res.json())
   .then(res => console.log(res))
   .catch(err => console.log(err));
 };
