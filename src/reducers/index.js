@@ -1,10 +1,11 @@
-import { SET_TITLE_HEADER, SET_AUTH_TOKEN, SET_CURRENT_USER, ADD_GUEST, TOGGLE_ADD_GUEST } from "../actions";
+import { SET_TITLE_HEADER, SET_AUTH_TOKEN, SAVE_EVENT, SET_CURRENT_USER, ADD_GUEST, TOGGLE_ADD_GUEST } from "../actions";
 
 const initialState = {
   title: null,
   subTitle: null,
   authToken: null,
   currentUser: null,
+  event: null,
   guests:[{
     name: {
       first: 'Tanner',
@@ -38,6 +39,10 @@ export const rsvpReducer = (state = initialState, action) => {
   } else if (action.type === TOGGLE_ADD_GUEST) {
     return Object.assign({}, state, {
       addModalOpen: action.isOpen
+    })
+  } else if (action.type === SAVE_EVENT) {
+    return Object.assign({}, state, {
+      event: action.event
     })
   }
   return state;

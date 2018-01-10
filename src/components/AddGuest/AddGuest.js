@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 
-import {addGuest} from '../../actions';
+import {addGuest, dbGuest} from '../../actions';
 import Input from '../Input/Input';
 import {required, nonEmpty} from '../validators';
 
@@ -20,6 +20,7 @@ export class AddGuest extends Component {
 			group: values.group
 		};
 		this.props.dispatch(addGuest(guest));
+		this.props.dispatch(dbGuest(guest));
 	}
 
   render() {

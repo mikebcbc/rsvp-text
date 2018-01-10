@@ -28,6 +28,15 @@ export const toggleGuest = (isOpen) => ({
   isOpen
 });
 
+export const dbGuest = guest => dispatch => {
+  // return fetch(`${API_BASE_URL}/guests`, {
+  //   method: "POST",
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${getState().rsvp.authToken}`
+  //   }
+}
+
 // AUTH ACTIONS
 
 export const SET_AUTH_TOKEN = "SET_AUTH_TOKEN";
@@ -49,6 +58,12 @@ const storeAuthInfo = (authToken, dispatch) => {
   saveAuthToken(authToken);
 };
 
+export const SAVE_EVENT = "SAVE_EVENT";
+export const saveEvent = event => ({
+  type: SAVE_EVENT,
+  event
+});
+
 const createEvent = name => (dispatch, getState) => {
   const event = {
     "event": {
@@ -64,7 +79,8 @@ const createEvent = name => (dispatch, getState) => {
     },
     body: JSON.stringify(event)
   })
-  .then(res => console.log(res))
+  .then(res => res.json())
+  .then(event => saveEvent(event))
   .catch(err => console.log(err));
 };
 
@@ -81,8 +97,10 @@ export const registerUser = user => (dispatch)=> {
         "email": user.user.email,
         "password": user.user.password
       };
-      dispatch(login(formatUser));
-      dispatch(createEvent());
+      dispatch(login(formatUser))
+      .then(() => {
+        dispatch(createEvent());
+      })
     })
     .catch(err => console.log(err));
 };
