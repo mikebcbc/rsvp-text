@@ -80,7 +80,7 @@ const createEvent = name => (dispatch, getState) => {
     body: JSON.stringify(event)
   })
   .then(res => res.json())
-  .then(event => saveEvent(event))
+  .then(event => dispatch(saveEvent(event)))
   .catch(err => console.log(err));
 };
 

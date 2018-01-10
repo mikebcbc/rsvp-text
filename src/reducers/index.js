@@ -5,7 +5,7 @@ const initialState = {
   subTitle: null,
   authToken: null,
   currentUser: null,
-  event: null,
+  event: {},
   guests:[{
     name: {
       first: 'Tanner',
@@ -41,6 +41,7 @@ export const rsvpReducer = (state = initialState, action) => {
       addModalOpen: action.isOpen
     })
   } else if (action.type === SAVE_EVENT) {
+    console.log(action.event);
     return Object.assign({}, state, {
       event: action.event
     })

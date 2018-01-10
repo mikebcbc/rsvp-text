@@ -36,7 +36,7 @@ export class Guests extends Component {
 	  		return (
 	  			<div className="guests">
 	  				<div className="guests-header">
-	  					<h4>Smith Wedding Guest List</h4>
+	  					<h4>{this.props.event.name}</h4>
 	  					<button onClick={(e) => this.props.dispatch(toggleGuest(true))}>+</button>
 	  				</div>
 	  				{makeTable()}
@@ -54,7 +54,8 @@ export class Guests extends Component {
 
 const mapStateToProps = state => ({
 	guests: state.rsvp.guests,
-	addModalOpen: state.rsvp.addModalOpen
+	addModalOpen: state.rsvp.addModalOpen,
+	event: state.rsvp.event
 })
 
 export default connect(mapStateToProps)(Guests);
