@@ -28,13 +28,27 @@ export const toggleGuest = (isOpen) => ({
   isOpen
 });
 
-export const dbGuest = guest => dispatch => {
-  // return fetch(`${API_BASE_URL}/guests`, {
-  //   method: "POST",
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${getState().rsvp.authToken}`
-  //   }
+export const dbGuest = (guest, eventID, authToken) => (dispatch) => {
+  console.log('reached');
+  const editedGuest = {
+    "guest": {
+      "first_name": guest.name.first,
+      "last_name": guest.name.last,
+      "event_id": eventID,
+      "phone": guest.phone
+    }
+  };
+  return fetch(`${API_BASE_URL}/guests`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    },
+    body: JSON.stringify(editedGuest)
+  })
+  .then(res => res.json())
+  .then(g => console.log(g))
+  .catch(err => console.log(err));
 }
 
 // AUTH ACTIONS

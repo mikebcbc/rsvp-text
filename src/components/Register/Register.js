@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import { connect } from "react-redux";
+import {Redirect} from 'react-router-dom';
 import { setTitleHeader } from "../../actions";
 
 export class Register extends Component {
@@ -13,6 +14,9 @@ export class Register extends Component {
     );
   }
   render() {
+    if(this.props.loggedIn) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="register">
         <RegisterForm />
@@ -21,4 +25,8 @@ export class Register extends Component {
   }
 }
 
-export default connect(dispatch => ({ dispatch }))(Register);
+const mapStateToProps = state => ({
+  loggedIn: state.rsvp.authToken !== null
+});
+
+export default connect(mapStateToProps)(Register);
