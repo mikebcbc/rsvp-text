@@ -28,8 +28,29 @@ export const toggleGuest = (isOpen) => ({
   isOpen
 });
 
+export const fetchGuests = token => dispatch => {
+  fetch(`${API_BASE_URL}/guests`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+  .then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  })
+  .then(guests => {
+    console.log(guests);
+    guests.forEach((guest) => {
+      let editedGuest = {name: {first: guest.first_name, last: guest.last_name}, rsvp: 'y', phone: guest.phone, group: 'Groomsman'}
+      dispatch(addGuest(editedGuest));
+    })
+  })
+}
+
 export const dbGuest = (guest, eventID, authToken) => (dispatch) => {
-  console.log('reached');
   const editedGuest = {
     "guest": {
       "first_name": guest.name.first,
