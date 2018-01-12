@@ -28,6 +28,18 @@ export const toggleGuest = (isOpen) => ({
   isOpen
 });
 
+export const fetchEvent = token => dispatch => {
+  fetch(`${API_BASE_URL}/events`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+  .then(res => res.json())
+  .then(event => dispatch(saveEvent(event[0])))
+  .catch(err => console.log(err));
+}
+
 export const fetchGuests = token => dispatch => {
   fetch(`${API_BASE_URL}/guests`, {
     method: 'GET',

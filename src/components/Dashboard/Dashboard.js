@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setTitleHeader, fetchGuests } from "../../actions";
+import { setTitleHeader, fetchGuests, fetchEvent } from "../../actions";
 
 import Sidebar from "../Sidebar/Sidebar";
 import Guests from "../Guests/Guests";
@@ -15,6 +15,7 @@ export class Dashboard extends Component {
         "Manage your guests, set reminders, customize messages, and more!"
       )
     );
+    this.props.dispatch(fetchEvent(this.props.authToken));
     this.props.dispatch(fetchGuests(this.props.authToken));
   }
   render() {
