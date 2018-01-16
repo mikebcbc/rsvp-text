@@ -92,11 +92,32 @@ export const setAuthToken = authToken => ({
   authToken
 });
 
+export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const clearAuth = () => ({
+    type: CLEAR_AUTH
+});
+
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const setCurrentUser = currentUser => ({
   type: SET_CURRENT_USER,
   currentUser
 });
+
+export const refreshToken = () => (dispatch, getState) => {
+  const authToken = getState().rsvp.authToken;
+  return fetch(`${API_BASE_URL}/refresh`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => res.json())
+  .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+  .catch(err => {
+    dispatch(clearAuth());
+    clearAuthToken(authToken);
+  });
+};
 
 const storeAuthInfo = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);

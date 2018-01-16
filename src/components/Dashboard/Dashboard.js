@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Redirect} from 'react-router-dom';
 import { setTitleHeader, fetchGuests, fetchEvent } from "../../actions";
 
 import Sidebar from "../Sidebar/Sidebar";
@@ -19,6 +20,10 @@ export class Dashboard extends Component {
     this.props.dispatch(fetchGuests(this.props.authToken));
   }
   render() {
+    if(!this.props.loggedIn) {
+      return <Redirect to="/login" />;
+    }
+
     return (
       <div className="dashboard">
         <Guests />
@@ -29,7 +34,8 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  authToken: state.rsvp.authToken
+  authToken: state.rsvp.authToken,
+  loggedIn: state.rsvp.authToken !== null
 });
 
 export default connect(mapStateToProps)(Dashboard);
