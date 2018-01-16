@@ -4,6 +4,8 @@
   padding: 20px; }
   .register-form label {
     display: none; }
+  .register-form .react-datepicker-wrapper, .register-form .react-datepicker__input-container {
+    width: 100%; }
   .register-form input {
     width: 100%; }
   .register-form button {
