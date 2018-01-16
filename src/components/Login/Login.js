@@ -22,7 +22,7 @@ class Login extends Component {
           <span>Enter a username and password to log on!</span>
         </div>
       	<LoginForm />
-        <span className="register">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
+        <span className="register-disclaimer">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
       </div>
     );
   }

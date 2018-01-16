@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import { connect } from "react-redux";
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { setTitleHeader } from "../../actions";
+
+import './Register.css';
 
 export class Register extends Component {
   componentDidMount() {
@@ -19,7 +21,12 @@ export class Register extends Component {
     }
     return (
       <div className="register">
+        <div className="register-header">
+          <h3>Register for RSVPtext</h3>
+          <span>Enter a username, password, and email to get started!</span>
+        </div>
         <RegisterForm />
+        <span className="login-disclaimer">Already a member? <Link to="/login">Login</Link></span>
       </div>
     );
   }

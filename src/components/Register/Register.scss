@@ -1,0 +1,25 @@
+.register {
+	margin: 20px auto;
+	max-width: 500px;
+	.register-header {
+		color: white;
+		background-color: #68aeeb;
+		padding: 10px;
+		h3 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 600;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+	}
+	.login-disclaimer {
+		display: block;
+		text-align: center;
+		margin-top: 10px;
+		a {
+			color: #68aeeb;
+			font-weight: bold;
+			text-decoration: none;
+		}
+	}
+}

@@ -21,18 +21,20 @@ export class RegisterForm extends Component {
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
         <label htmlFor="name">Your Name</label>
-        <Field component={Input} type="text" name="name" validate={required} />
+        <Field component={Input} type="text" name="name" placeholder="Your Name" validate={required} />
         <label htmlFor="email">Your Email</label>
         <Field
           component={Input}
           type="email"
           name="email"
+          placeholder="Your Email"
           validate={[required, nonEmpty, isTrimmed]}
         />
         <label htmlFor="password">Password</label>
         <Field
           component={Input}
-          type="text"
+          type="password"
+          placeholder="Password"
           name="password"
           validate={[required, isTrimmed]}
         />
