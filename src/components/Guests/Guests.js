@@ -22,7 +22,7 @@ export class Guests extends Component {
 	    Header: 'RSVP',
 	    accessor: 'rsvp',
 	    Cell: row => (
-	    	row.value === 'y' ? <div><span>YES</span><span> NO</span></div> : <div><span>YES</span><span> NO</span></div>
+	    	row.value === true ? <div><span>YES</span><span> NO</span></div> : <div><span>YES</span><span> NO</span></div>
 	    )
 	  },
 	  {

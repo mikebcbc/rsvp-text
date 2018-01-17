@@ -16,7 +16,7 @@ export class Register extends Component {
     );
   }
   render() {
-    if(this.props.loggedIn) {
+    if(this.props.loggedIn && this.props.event) {
       return <Redirect to="/" />;
     }
     return (
@@ -33,7 +33,8 @@ export class Register extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.rsvp.authToken !== null
+  loggedIn: state.rsvp.authToken !== null,
+  event: state.rsvp.event
 });
 
 export default connect(mapStateToProps)(Register);

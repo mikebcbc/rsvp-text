@@ -54,9 +54,8 @@ export const fetchGuests = token => dispatch => {
     return res.json();
   })
   .then(guests => {
-    console.log(guests);
     guests.forEach((guest) => {
-      let editedGuest = {name: {first: guest.first_name, last: guest.last_name}, rsvp: 'y', phone: guest.phone, group: 'Groomsman'}
+      let editedGuest = {name: {first: guest.first_name, last: guest.last_name}, rsvp: guest.rsvp, phone: guest.phone, group: guest.group}
       dispatch(addGuest(editedGuest));
     })
   })
@@ -68,7 +67,9 @@ export const dbGuest = (guest, eventID, authToken) => (dispatch) => {
       "first_name": guest.name.first,
       "last_name": guest.name.last,
       "event_id": eventID,
-      "phone": guest.phone
+      "phone": guest.phone,
+      "rsvp": false,
+      "group": guest.group
     }
   };
   return fetch(`${API_BASE_URL}/guests`, {
@@ -132,11 +133,12 @@ export const saveEvent = event => ({
   event
 });
 
-const createEvent = name => (dispatch, getState) => {
+const createEvent = (name, date) => (dispatch, getState) => {
+  console.log(date);
   const event = {
     "event": {
-      "name": 'Smith Family',
-      "event_date": '2018-01-01'
+      "name": name,
+      "event_date": date
     }
   };
   return fetch(`${API_BASE_URL}/events`, {
@@ -167,7 +169,7 @@ export const registerUser = user => (dispatch)=> {
       };
       dispatch(login(formatUser))
       .then(() => {
-        dispatch(createEvent());
+        dispatch(createEvent(user.user.event, user.user.date));
       })
     })
     .catch(err => console.log(err));
