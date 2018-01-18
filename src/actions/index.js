@@ -36,30 +36,37 @@ export const fetchEvent = token => dispatch => {
     }
   })
   .then(res => res.json())
-  .then(event => dispatch(saveEvent(event[0])))
+  .then(event => {
+    event[0].guests.forEach((guest) => {
+      let editedGuest = {name: {first: guest.first_name, last: guest.last_name}, rsvp: guest.rsvp, phone: guest.phone, group: guest.group}
+      dispatch(addGuest(editedGuest));
+    });
+    delete event[0].guests;
+    dispatch(saveEvent(event[0]))
+  })
   .catch(err => console.log(err));
 }
 
-export const fetchGuests = token => dispatch => {
-  fetch(`${API_BASE_URL}/guests`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  })
-  .then(res => {
-    if (!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    return res.json();
-  })
-  .then(guests => {
-    guests.forEach((guest) => {
-      let editedGuest = {name: {first: guest.first_name, last: guest.last_name}, rsvp: guest.rsvp, phone: guest.phone, group: guest.group}
-      dispatch(addGuest(editedGuest));
-    })
-  })
-}
+// export const fetchGuests = token => dispatch => {
+//   fetch(`${API_BASE_URL}/guests`, {
+//     method: 'GET',
+//     headers: {
+//       'Authorization': `Bearer ${token}`
+//     }
+//   })
+//   .then(res => {
+//     if (!res.ok) {
+//       return Promise.reject(res.statusText);
+//     }
+//     return res.json();
+//   })
+//   .then(guests => {
+//     guests.forEach((guest) => {
+//       let editedGuest = {name: {first: guest.first_name, last: guest.last_name}, rsvp: guest.rsvp, phone: guest.phone, group: guest.group}
+//       dispatch(addGuest(editedGuest));
+//     })
+//   })
+// }
 
 export const dbGuest = (guest, eventID, authToken) => (dispatch) => {
   const editedGuest = {

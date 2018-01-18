@@ -4,11 +4,17 @@ import {connect} from 'react-redux';
 import Modal from 'react-responsive-modal';
 import AddGuest from '../AddGuest/AddGuest';
 
-import {toggleGuest} from '../../actions';
+import { toggleGuest, fetchEvent } from "../../actions";
 import 'react-table/react-table.css';
 import './Guests.css';
 
 export class Guests extends Component {
+	componentWillMount() {
+		if (this.props.loggedIn) {
+			this.props.dispatch(fetchEvent(this.props.authToken));
+    }
+	}
+
 	render() {
 	  const columns = [{
 	    Header: 'First',
@@ -54,6 +60,8 @@ export class Guests extends Component {
 
 const mapStateToProps = state => ({
 	guests: state.rsvp.guests,
+	authToken: state.rsvp.authToken,
+	loggedIn: state.rsvp.authToken !== null,
 	addModalOpen: state.rsvp.addModalOpen,
 	event: state.rsvp.event
 })
