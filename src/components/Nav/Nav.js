@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setCurrentUser, setAuthToken} from '../../actions';
+import {clearAuth} from '../../actions';
 import {clearAuthToken} from '../../local-storage';
 import './Nav.css';
 
 class Nav extends Component {
   logOut() {
-    this.props.dispatch(setCurrentUser(null));
-    this.props.dispatch(setAuthToken(null));
+    this.props.dispatch(clearAuth());
     clearAuthToken();
   }
 
