@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import {connect} from 'react-redux';
 
-import {addGuest} from '../../actions';
+import {addGuest, dbGuest} from '../../actions';
 import Input from '../Input/Input';
 import {required, nonEmpty} from '../validators';
 
@@ -20,6 +21,7 @@ export class AddGuest extends Component {
 			group: values.group
 		};
 		this.props.dispatch(addGuest(guest));
+		this.props.dispatch(dbGuest(guest, this.props.eventID, this.props.authToken));
 	}
 
   render() {
@@ -40,6 +42,13 @@ export class AddGuest extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  eventID: state.rsvp.event.id,
+  authToken: state.rsvp.authToken
+});
+
+AddGuest = connect(mapStateToProps)(AddGuest);
 
 export default reduxForm({
     form: 'addGuest',

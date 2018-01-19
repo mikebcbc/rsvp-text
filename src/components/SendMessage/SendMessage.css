@@ -1,0 +1,24 @@
+.sidebar-item {
+  background-color: #d9edff;
+  padding: 10px; }
+  .sidebar-item .title-option {
+    font-weight: bold;
+    margin-bottom: 5px; }
+
+.send-message textarea {
+  resize: none;
+  background-color: #dddddd;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  margin-bottom: 15px; }
+
+.send-message .attach-send {
+  display: flex; }
+  .send-message .attach-send .send {
+    margin-left: auto;
+    background-color: #68aeeb;
+    padding: 8px 15px;
+    color: white;
+    border: none;
+    box-shadow: none;
+    font-size: 14px; }

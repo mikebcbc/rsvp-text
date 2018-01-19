@@ -1,2 +1,17 @@
-form {
-  margin-top: 150px; }
+.register-form {
+  margin: 0;
+  background-color: #d9edff;
+  padding: 20px; }
+  .register-form label {
+    display: none; }
+  .register-form .react-datepicker-wrapper, .register-form .react-datepicker__input-container {
+    width: 100%; }
+  .register-form input {
+    width: 100%; }
+  .register-form button {
+    background-color: #68aeeb;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px; }

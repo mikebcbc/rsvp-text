@@ -5,7 +5,7 @@ import { reducer as formReducer } from "redux-form";
 import { rsvpReducer } from "./reducers";
 
 import { loadAuthToken } from "./local-storage";
-import { setAuthToken } from "./actions";
+import { setAuthToken, refreshToken } from "./actions";
 
 const store = createStore(
   combineReducers({
@@ -19,6 +19,7 @@ const authToken = loadAuthToken();
 if (authToken) {
   const token = authToken;
   store.dispatch(setAuthToken(token));
+  // store.dispatch(refreshToken());
 }
 
 export default store;

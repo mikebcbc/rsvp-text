@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import { connect } from "react-redux";
+import {Link, Redirect} from 'react-router-dom';
 import { setTitleHeader } from "../../actions";
+
+import './Register.css';
 
 export class Register extends Component {
   componentDidMount() {
@@ -13,12 +16,25 @@ export class Register extends Component {
     );
   }
   render() {
+    if(this.props.loggedIn && this.props.event) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="register">
+        <div className="register-header">
+          <h3>Register for RSVPtext</h3>
+          <span>Enter a username, password, and email to get started!</span>
+        </div>
         <RegisterForm />
+        <span className="login-disclaimer">Already a member? <Link to="/login">Login</Link></span>
       </div>
     );
   }
 }
 
-export default connect(dispatch => ({ dispatch }))(Register);
+const mapStateToProps = state => ({
+  loggedIn: state.rsvp.authToken !== null,
+  event: state.rsvp.event
+});
+
+export default connect(mapStateToProps)(Register);

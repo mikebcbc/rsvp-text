@@ -17,3 +17,54 @@
     text-align: center;
     outline: none;
     cursor: pointer; }
+
+.guests .rt-tr.-odd {
+  background-color: #d9edff !important; }
+
+.guests .rt-tr.-even {
+  background-color: #e5f3ff !important; }
+
+.guests .pagination-bottom .select-wrap {
+  min-width: 150px; }
+
+.guests .pagination-bottom .select-wrap:before {
+  display: inline-block;
+  content: "SHOW "; }
+
+.guests .pagination-bottom .-next {
+  order: 1;
+  flex: 0; }
+
+.guests .pagination-bottom .-previous {
+  order: 1;
+  flex: 0;
+  margin-left: auto; }
+
+.guests .pagination-bottom .-center {
+  flex: 0; }
+  .guests .pagination-bottom .-center .-pageInfo {
+    display: none; }
+
+.guests .yes {
+  display: inline-block;
+  text-align: center;
+  margin: 0 4px;
+  opacity: 0.2;
+  padding: 5px;
+  color: white;
+  width: 50px;
+  background-color: #31c268; }
+  .guests .yes.active {
+    opacity: 1; }
+
+.guests .no {
+  display: inline-block;
+  text-align: center;
+  margin: 0 4px;
+  opacity: 0.2;
+  padding: 5px;
+  color: white;
+  width: 50px;
+  background-color: #c24231; }
+  .guests .no.active {
+    opacity: 1; }
