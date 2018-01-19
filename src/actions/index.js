@@ -28,10 +28,20 @@ export const toggleGuest = (isOpen) => ({
   isOpen
 });
 
+export const sendReminder = (token, eventID) => dispatch => {
+  fetch(`${API_BASE_URL}/sms/invite/${eventID}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+}
+
 export const fetchEvent = token => dispatch => {
   fetch(`${API_BASE_URL}/events`, {
     method: 'GET',
     headers: {
+      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     }
   })

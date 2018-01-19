@@ -24,6 +24,9 @@
 .guests .rt-tr.-even {
   background-color: #e5f3ff !important; }
 
+.guests .pagination-bottom .select-wrap {
+  min-width: 150px; }
+
 .guests .pagination-bottom .select-wrap:before {
   display: inline-block;
   content: "SHOW "; }

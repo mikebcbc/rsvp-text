@@ -1,8 +1,7 @@
 .sidebar {
   height: 700px;
   margin: 0 20px;
-  width: 25%;
-  background-color: lightgrey; }
+  width: 25%; }
   @media screen and (max-width: 769px) {
     .sidebar {
       width: 100%; } }
