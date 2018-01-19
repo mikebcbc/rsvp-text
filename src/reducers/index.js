@@ -6,15 +6,7 @@ const initialState = {
   authToken: null,
   currentUser: null,
   event: {},
-  guests:[{
-    name: {
-      first: 'Tanner',
-      last: 'Linsley'
-    },
-    rsvp: 'y',
-    phone: "123-123-1231",
-    group: 'Groomsman'
-  }],
+  guests:[],
   addModalOpen: false
 };
 

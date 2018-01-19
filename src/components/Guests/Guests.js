@@ -27,8 +27,9 @@ export class Guests extends Component {
 	  {
 	    Header: 'RSVP',
 	    accessor: 'rsvp',
+	    maxWidth: 130,
 	    Cell: row => (
-	    	row.value === true ? <div><span>YES</span><span> NO</span></div> : <div><span>YES</span><span> NO</span></div>
+	    	row.value === true ? <div><span className="yes active">YES</span><span className="no"> NO</span></div> : <div><span className="yes">YES</span><span className="no active"> NO</span></div>
 	    )
 	  },
 	  {
@@ -37,7 +38,7 @@ export class Guests extends Component {
 	  }];
 
 	  return ([
-	  <ReactTable data={this.props.guests} columns={columns} key="1">
+	  <ReactTable data={this.props.guests} columns={columns} key="1" previousText="<" nextText=">">
 	  	{(state, makeTable, instance) => {
 	  		return (
 	  			<div className="guests">

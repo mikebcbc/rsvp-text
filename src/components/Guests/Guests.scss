@@ -20,4 +20,57 @@
 	    cursor: pointer;
 		}
 	}
+	.rt-tr.-odd {
+		background-color: #d9edff!important;
+	}
+	.rt-tr.-even {
+		background-color: #e5f3ff!important;
+	}
+	.pagination-bottom {
+		.select-wrap:before {
+    	display: inline-block;
+    	content: "SHOW ";
+  	}
+		.-next {
+			order: 1;
+			flex: 0;
+		}
+		.-previous {
+			order: 1;
+			flex: 0;
+			margin-left: auto;
+		}
+		.-center {
+			flex: 0;
+			.-pageInfo {
+				display: none;
+			}
+		}
+	}
+	.yes {
+		display: inline-block;
+		text-align: center;
+		margin: 0 4px;
+		opacity: 0.2;
+		padding: 5px;
+		color: white;
+		width: 50px;
+		background-color: #31c268;
+		&.active {
+			opacity: 1;
+		}
+	}
+	.no {
+		display: inline-block;
+		text-align: center;
+		margin: 0 4px;
+		opacity: 0.2;
+		padding: 5px;
+		color: white;
+		width: 50px;
+		background-color: #c24231;
+		&.active {
+			opacity: 1;
+		}
+	}
 }
